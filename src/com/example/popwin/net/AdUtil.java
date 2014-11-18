@@ -34,6 +34,7 @@ public class AdUtil {
 			ad.setIconUrl(adJson.getIconUrl());
 			ad.setPackageName(adJson.getPackageName());
 			ad.setUrl(adJson.getDownloadUrl());
+			ad.setPriority(adJson.getPriority());
 			LogUtil.e("APPINFO", ad.toString());
 			return ad;
 		}

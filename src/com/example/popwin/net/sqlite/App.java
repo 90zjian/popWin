@@ -22,12 +22,12 @@ public class App {
 	public static final String STATUS= "status";
 	public static final String APPID = "appId";
 	public static final String PUSHERID = "pusherId";
-	
+	public static final String PRIORITY = "priority";
 
 	
 	private int appId = 0;
 	
-//	private int adType = 0;
+	private int priority = 0;
 	
 	private String iconUrl = "";
 	
@@ -46,6 +46,14 @@ public class App {
 	private int status = 0;
 	
 	private int pusherId = 101;
+	
+	public int getPriority(){
+		return priority;
+	}
+	
+	public void setPriority(int pri){
+		this.priority=pri;
+	}
 	
 	public int getpusherId() {
 		return pusherId;

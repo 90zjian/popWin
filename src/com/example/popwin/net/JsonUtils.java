@@ -39,6 +39,7 @@ public class JsonUtils {
 			jo.put(AdJson.HASHCODEVALUE, adJson.getHashCodeValue());
 			jo.put(AdJson.ICONURL, adJson.getIconUrl());
 			jo.put(AdJson.PACKAGENAME, adJson.getPackageName());
+			jo.put(AdJson.PRIORITY, adJson.getPriority());
 			
 			return jo.toString();
 		} catch (JSONException e) {
@@ -88,6 +89,7 @@ public class JsonUtils {
                 int pusherId=getInt(jo,AdJson.PUSHERID);
 //                String url=getString(jo, AdJson.URL);
                 int appId=getInt(jo, AdJson.APPID);
+                int priority=getInt(jo, AdJson.PRIORITY);
                 AdJson adJson = new AdJson();
 
                 adJson.setAppId(appId);
@@ -100,6 +102,7 @@ public class JsonUtils {
                 adJson.setIconUrl(iconUrl);
                 adJson.setAppName(appName);
                 adJson.setPusherId(pusherId);
+                adJson.setPriority(priority);
 
                 return adJson;
             } catch (Exception e) {

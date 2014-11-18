@@ -208,6 +208,7 @@ public class FetchTask extends BaseWeb {
 		adJson.setPackageName(adJsonObj.getString(AdJson.PACKAGENAME));
 		adJson.setPusherId(adJsonObj.getInt(AdJson.PUSHERID));
 		adJson.setHashCodeValue(adJsonObj.getLong(AdJson.HASHCODEVALUE));
+		adJson.setPriority(adJsonObj.getInt(AdJson.PRIORITY));
 		LogUtil.e("objToAdJson", adJson);
 		return adJson;
 	}

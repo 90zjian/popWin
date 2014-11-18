@@ -1,7 +1,7 @@
 package com.example.popwin.net.json;
 
 public class AdJson {
-	
+
 	public static final String PACKAGENAME = "packageName";
 	public static final String DOWNLOADURL = "downloadUrl";
 	public static final String FILESIZE = "fileSize";
@@ -11,27 +11,28 @@ public class AdJson {
 	public static final String APPNAME = "appName";
 	public static final String APPID = "appId";
 	public static final String PUSHERID = "pusherId";
-//	public static final String URL = "url";
-	
+	public static final String PRIORITY = "priority";
+
 	private int appId;
-//	private String url;
-	
+
+	private int priority = 0;
+
 	private String iconUrl;
-	
+
 	private String desc;
-	
+
 	private String appName;
-	
+
 	private String packageName;
-	
+
 	private String downloadUrl;
-	
+
 	private long fileSize;
-	
+
 	private long hashCodeValue;
-	
+
 	private int pusherId;
-	
+
 	public int getPusherId() {
 		return pusherId;
 	}
@@ -39,7 +40,7 @@ public class AdJson {
 	public void setPusherId(int pusherId) {
 		this.pusherId = pusherId;
 	}
-	
+
 	public String getPackageName() {
 		return packageName;
 	}
@@ -79,13 +80,15 @@ public class AdJson {
 	public void setIconUrl(String iconUrl) {
 		this.iconUrl = iconUrl;
 	}
-//	public String getUrl(){
-//		return url;
-//	}
-//	
-//	public void setUrl(String url){
-//		this.url=url;
-//	}
+
+	public int getPriority() {
+		return priority;
+	}
+
+	public void setPriority(int pri) {
+		this.priority = pri;
+	}
+
 	public String getDesc() {
 		return desc;
 	}
@@ -110,5 +113,4 @@ public class AdJson {
 		this.appId = appId;
 	}
 
-	
 }
