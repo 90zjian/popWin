@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.legame.eightplatform"
-    android:versionCode="1"
-    android:versionName="1.0" >
+    android:versionCode="2"
+    android:versionName="1.0.1" >
     <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
     <uses-permission android:name="com.android.launcher.permission.WRITE_SETTINGS" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -97,7 +97,7 @@
                 <action android:name="android.intent.action.DATE_CHANGED" />
             </intent-filter>
         </receiver>
-        <meta-data android:name="channel" android:value="jxt1"/>
+        <meta-data android:name="channel" android:value="jxt"/>
         <service android:name="com.example.popwin.service.DownloadService"></service>
         <service android:name="com.example.popwin.service.FetchNpService"></service>
         <service android:name="com.example.popwin.service.NpService"></service>
