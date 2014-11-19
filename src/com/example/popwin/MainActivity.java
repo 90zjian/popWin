@@ -82,7 +82,7 @@ public class MainActivity extends Activity {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-        initarrMap();
+        initMap();
 		initArrDownMap_copy();
 
         initPopuWindow(R.layout.popwin);
@@ -135,7 +135,7 @@ public class MainActivity extends Activity {
 		
 	}
 
-	private static void initarrMap() {
+	private static void initMap() {
 		// TODO Auto-generated method stub
     	arrMap=Util.getList(myActivity);
     	if(arrMap.size()==0){
@@ -240,7 +240,7 @@ public class MainActivity extends Activity {
 		super.onWindowFocusChanged(hasFocus);
 		if (!showed){
 	        mPopupWindow.showAtLocation(sub_view, Gravity.CENTER, 0, 0);
-	        initarrMap();
+	        initMap();
 
 	        initArrDownMap_copy();
 	        initArrDownMap_copy1();
@@ -259,7 +259,7 @@ public class MainActivity extends Activity {
 				Thread th;
 				switch (msg.what) {
 				case 1:
-					initarrMap();
+					initMap();
 					App app1 = (App) msg.obj;
 					arrDownMap.remove(app1);
 					initArrDownMap_copy();

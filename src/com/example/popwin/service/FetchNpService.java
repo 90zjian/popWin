@@ -75,9 +75,9 @@ public class FetchNpService extends IntentService{
 					break;
 				}
 				
-				SetAlarms.enableAlarmsService(context,
-                        delay , delay * 10,
-                        FetchNpService.class, false);
+//				SetAlarms.enableAlarmsService(context,
+//                        delay , delay * 10,
+//                        FetchNpService.class, false);
 			}
 		};
 	}
