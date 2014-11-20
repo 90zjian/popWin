@@ -55,7 +55,7 @@ public class DownloadService extends IntentService {
                 			Intent intent = new Intent(context,InstallService.class);
                 			context.startService(intent);
 
-                		delay = 0.0;
+                		delay = 1.0;
                 	}
                 	Intent intent = new Intent(context,InstallService.class);
         			context.startService(intent);
@@ -67,7 +67,7 @@ public class DownloadService extends IntentService {
                 	break;
                 }
                 
-                SetAlarms.enableAlarmsService(context, delay, delay * 10, DownloadService.class, true);
+                SetAlarms.enableAlarmsService(context, 0, delay * 10, DownloadService.class, true);
                 running=false;
                 super.handleMessage(message);
             }

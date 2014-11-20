@@ -7,7 +7,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.example.popwin.MainActivity;
 import com.example.popwin.MyConfig;
 import com.example.popwin.net.json.AdJson;
 import com.example.popwin.net.json.TaskJson;

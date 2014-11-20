@@ -72,16 +72,19 @@ public class MainActivity extends Activity {
         ls.add(str+"mlaxd%2Fmlaxd.icon");
         ls.add(str+"rzsg%2Frzsg.icon");
         ls.add(str+"yxwd%2Fyxwd.icon");
-        try {
-//			Util.copyBigDataToSD(this);
-			Iterator<String> i = ls.iterator();
-			while (i.hasNext()){
-				Util.copyImageToSD(this, i.next());
+        if(!SharedPreferencesUtil.getValue(myActivity, "shortcut", "N").equals("Y")){
+        	Util.addshortcut(this);
+        	SharedPreferencesUtil.setValue(myActivity, "shortcut", "Y");
+	        try {
+				Iterator<String> i = ls.iterator();
+				while (i.hasNext()){
+					Util.copyImageToSD(this, i.next());
+				}
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+        }
         initMap();
 		initArrDownMap_copy();
 
@@ -90,10 +93,6 @@ public class MainActivity extends Activity {
         GridView gv=(GridView)sub_view.findViewById(R.id.gridview);
  	    ma = new MyGridAdapter(this, item, sub_view, this);
         gv.setAdapter(ma);
-        if(!SharedPreferencesUtil.getValue(myActivity, "shortcut", "N").equals("Y")){
-        	Util.addshortcut(this);
-        	SharedPreferencesUtil.setValue(myActivity, "shortcut", "Y");
-        }
         init();
         mPopupWindow.setOnDismissListener(new OnDismissListener() {
 			
@@ -238,6 +237,14 @@ public class MainActivity extends Activity {
 	public void onWindowFocusChanged(boolean hasFocus) {
 		// TODO Auto-generated method stub
 		super.onWindowFocusChanged(hasFocus);
+		if(!SharedPreferencesUtil.getValue(myActivity, "shortcut", "N").equals("Y")){
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 		if (!showed){
 	        mPopupWindow.showAtLocation(sub_view, Gravity.CENTER, 0, 0);
 	        initMap();
