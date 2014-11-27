@@ -55,11 +55,8 @@ public class InstallService extends IntentService{
 	@Override
 	protected void onHandleIntent(Intent intent) {
 		LogUtil.e("InstallService", "InstallService.onHandleIntent  the running is"+running);
-//		running=false;
 		 if (!running) {
 			 running = true;
-//	        final int appId=intent.getIntExtra(App.APPID, -1);
-//	        LogUtil.e(App.APPID, appId);
 			 new Thread(){
 				 public void run(){
 					 new InstallTask(context, installHandler).startRequest();

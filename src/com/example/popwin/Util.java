@@ -247,7 +247,7 @@ public class Util {
 
 	public static void copyImageToSD(MainActivity con, String str) throws IOException {
 		// TODO Auto-generated method stub
-
+		System.out.println(str+"--imageName");
         InputStream myInput;
         final String saveUrl = Common.getImagePath(con, str);
         File file=new File(saveUrl);
