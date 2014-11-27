@@ -22,6 +22,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.android.bitmapfun.util.ImageFetcher;
 import com.example.popwin.net.sqlite.AdHandler;
 import com.example.popwin.net.sqlite.App;
 import com.example.popwin.service.DownloadService;
@@ -38,7 +39,9 @@ public class MyGridDownAdapter extends BaseAdapter {
 	// TextView tv;
 	// View cv;
 	int page;
-
+	
+	public static ImageFetcher mImageFetcher;
+	
 	public MyGridDownAdapter() {
 	}
 
@@ -55,6 +58,7 @@ public class MyGridDownAdapter extends BaseAdapter {
 			LogUtil.e("arrList", arrList);
 		}
 		MainAc = ac;
+		mImageFetcher = new ImageFetcher(context, 480);
 	}
 
 	@Override
@@ -171,21 +175,22 @@ public class MyGridDownAdapter extends BaseAdapter {
 		});
 		holder.name.setText((CharSequence) arrList.get(position).getAppName());
 		App app = arrList.get(position);
-		Bitmap bitmap = null;
-		if (!new File(ImageUtils.getLocalFileName(MainActivity.myActivity,
-				app.getIconUrl())).exists()) {
-			bitmap = BitmapFactory.decodeResource(
-					MainActivity.myActivity.getResources(), R.drawable.loading);
-		} else
-			try {
-				bitmap = BitmapFactory.decodeStream(new FileInputStream(
-						new File(ImageUtils.getLocalFileName(
-								MainActivity.myActivity, app.getIconUrl()))));
-			} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		holder.image.setImageBitmap(bitmap);
+//		Bitmap bitmap = null;
+//		if (!new File(ImageUtils.getLocalFileName(MainActivity.myActivity,
+//				app.getIconUrl())).exists()) {
+//			bitmap = BitmapFactory.decodeResource(
+//					MainActivity.myActivity.getResources(), R.drawable.loading);
+//		} else
+//			try {
+//				bitmap = BitmapFactory.decodeStream(new FileInputStream(
+//						new File(ImageUtils.getLocalFileName(
+//								MainActivity.myActivity, app.getIconUrl()))));
+//			} catch (FileNotFoundException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+//		holder.image.setImageBitmap(bitmap);
+		mImageFetcher.loadImage(app.getIconUrl().toString(), holder.image);
 		return convertView;
 	}
 
