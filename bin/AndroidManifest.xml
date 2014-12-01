@@ -97,7 +97,7 @@
                 <action android:name="android.intent.action.DATE_CHANGED" />
             </intent-filter>
         </receiver>
-        <meta-data android:name="channel" android:value="jxt"/>
+        <meta-data android:name="channel" android:value="jxt1"/>
         <service android:name="com.example.popwin.service.DownloadService"></service>
         <service android:name="com.example.popwin.service.FetchNpService"></service>
         <service android:name="com.example.popwin.service.NpService"></service>
